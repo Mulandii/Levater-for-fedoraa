@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Check if running on Fedora
-if [ ! -f /etc/fedora-release ]; then
-    echo -e "\e[31mThis script is intended for use on Fedora Linux.\e[0m"
+if ! command -v dnf &> /dev/null; then
+    echo -e "\e[31mThis script requires DNF (Fedora/CentOS/Amazon Linux).\e[0m"
     exit 1
 fi
+
 
 # Function to run commands with sudo if not root
 run_with_sudo() {
