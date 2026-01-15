@@ -61,11 +61,7 @@ if ! run_with_sudo dnf update -y; then
 fi
 
 # Install required packages
-for pkg in git ffmpeg curl; do
-    if ! command -v "$pkg" &> /dev/null; then
-        if ! run_with_sudo dnf install -y "$pkg"; then
-            echo -e "\e[31mFailed to install $pkg.\e[0m"
-            exit 1
+
         fi
     fi
 done
